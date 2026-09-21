@@ -1,7 +1,7 @@
 import React from "react";
 import prisma from "@/prisma/client";
 import { notFound } from "next/dist/client/components/not-found";
-import IssueFormSkeleton from "./loading";
+import IssueFormSkeleton from "../[id]/loading";
 import dynamic from "next/dynamic";
 
 interface Props {
