@@ -1,5 +1,6 @@
 import prisma from '@/prisma/client';
 import React from 'react'
+import ReactMarkdown from 'react-markdown';
 import { notFound } from 'next/navigation';
 import delay from 'delay';
 import { Card, Flex, Heading, Text } from '@radix-ui/themes/dist/cjs/components/index.js';
@@ -30,8 +31,8 @@ const IssueDetailPage = async ({ params }: Props) => {
         <IssueStatusBadge status={issue.status} />
         <Text>{issue.createdAt.toDateString()}</Text>
     </Flex>
-     <Card>
-        <Text>{issue.description}</Text>
+     <Card className="prose" mt="4">
+        <ReactMarkdown>{issue.description}</ReactMarkdown>
      </Card>
     </div>
   )
