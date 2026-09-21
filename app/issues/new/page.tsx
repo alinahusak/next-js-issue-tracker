@@ -15,9 +15,11 @@ import { z } from "zod";
 type IssueForm = z.infer<typeof issueSchema>;
 
 const NewIssuePage = () => {
+    
   const router = useRouter();
   const [error, setError] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+
   const {
     register,
     handleSubmit,
@@ -28,7 +30,7 @@ const NewIssuePage = () => {
     defaultValues: { title: "", description: "" },
   });
 
-  const onSubmit = async (data: IssueForm) => {
+  const onSubmit = handleSubmit(async (data: IssueForm) => {
     try {
       setIsSubmitting(true);
       await axios.post("/api/issues", data);
@@ -38,7 +40,8 @@ const NewIssuePage = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };
+  });
+
   return (
     <div className="max-w-xl">
       {error && (
@@ -46,7 +49,7 @@ const NewIssuePage = () => {
           <Callout.Text>{error}</Callout.Text>
         </Callout.Root>
       )}
-      <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
+      <form className="space-y-3" onSubmit={onSubmit}>
         <TextField.Root placeholder="Title" {...register("title")} />
         <ErrorMessage>{errors.title?.message}</ErrorMessage>
         <Controller
