@@ -1,7 +1,7 @@
 "use client";
 import { Button, Callout, TextField, Text } from "@radix-ui/themes";
 import ErrorMessage from "@/app/components/ErrorMessage";
-import Spinner from "@/app/components/Spinner";
+import {Spinner} from "@/app/components";
 import dynamic from "next/dynamic";
 import { useForm, Controller } from "react-hook-form";
 import "easymde/dist/easymde.min.css";
