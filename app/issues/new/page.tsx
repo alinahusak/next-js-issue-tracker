@@ -1,7 +1,8 @@
 "use client";
 import { Button, Callout,TextField, Text } from "@radix-ui/themes";
+import ErrorMessage from "@/app/components/ErrorMessage";
 import SimpleMDE from "react-simplemde-editor";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller} from "react-hook-form";
 import "easymde/dist/easymde.min.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -38,7 +39,7 @@ const NewIssuePage = () => {
       )}
       <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
         <TextField.Root placeholder="Title" {...register("title")} />
-        {errors.title && <Text className="text-red-500" as="p">{errors.title.message}</Text>}
+         <ErrorMessage>{errors.title?.message}</ErrorMessage>
         <Controller
           name="description"
           control={control}
@@ -46,7 +47,7 @@ const NewIssuePage = () => {
             <SimpleMDE placeholder="Description" {...field} />
           )}
           />
-          {errors.description && <Text className="text-red-500" as="p">{errors.description.message}</Text>}
+         <ErrorMessage>{errors.description?.message}</ErrorMessage>
         <Button type="submit">Submit New Issue</Button>
       </form>
     </div>
