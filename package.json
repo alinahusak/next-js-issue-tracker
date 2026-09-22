@@ -34,7 +34,7 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "github:tailwindcss/typography",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
     "dotenv": "^18.0.1",
