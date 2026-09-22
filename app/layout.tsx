@@ -24,11 +24,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body  className={inter.variable}>
+      <body className={inter.variable}>
         <QueryClientProvider>
           <AuthProvider>
             <Theme appearance="light" accentColor="violet">
-              The
               <NavBar />
               <main className='px-5'>
                 <Container>
