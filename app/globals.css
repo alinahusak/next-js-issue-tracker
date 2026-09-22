@@ -23,3 +23,8 @@ body {
     @apply text-zinc-500 hover:text-zinc-800 transition-colors;
   }
 }
+/* The typography plugin wraps inline code in literal backticks. */
+.prose code::before,
+.prose code::after {
+  content: none;
+}
