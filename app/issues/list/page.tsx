@@ -5,6 +5,7 @@ import IssueActions from './IssueActions';
 import IssueTable, { IssueQuery, columnNames } from './IssueTable';
 import { Flex } from '@radix-ui/themes';
 import { Metadata } from 'next';
+import { cache } from 'react';
 
 interface Props {
   searchParams: IssueQuery
